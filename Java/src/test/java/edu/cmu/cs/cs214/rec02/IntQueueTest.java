@@ -84,6 +84,27 @@ public class IntQueueTest {
             assertEquals(Integer.valueOf(i), mQueue.dequeue());
         }
     }
+    @Test
+    public void testClear() {
+        mQueue.enqueue(1);
+        mQueue.enqueue(2);
+        mQueue.clear();
+        assertTrue(mQueue.isEmpty());
+        assertEquals(0, mQueue.size());
+        assertNull(mQueue.peek());
+    }
+
+    @Test
+    public void testResizeWithWrapping() {
+        for (int i = 0; i < 10; i++) mQueue.enqueue(i);
+        for (int i = 0; i < 5; i++) mQueue.dequeue();
+        for (int i = 10; i < 15; i++) mQueue.enqueue(i);
+        mQueue.enqueue(15);
+        for (int i = 5; i <= 15; i++) {
+            assertEquals(Integer.valueOf(i), mQueue.dequeue());
+        }
+    }
+
 
     @Test
     public void testContent() throws IOException {
