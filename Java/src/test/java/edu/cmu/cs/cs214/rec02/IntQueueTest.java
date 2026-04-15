@@ -52,20 +52,20 @@ public class IntQueueTest {
 
     @Test
     public void testNotEmpty() {
-        // TODO: write your own unit test
-        fail("Test not implemented");
+        mQueue.enqueue(1);
+        assertFalse(mQueue,isEmpty());
     }
 
     @Test
     public void testPeekEmptyQueue() {
-        // TODO: write your own unit test
-        fail("Test not implemented");
+        assertNull(mQueue.peek());
     }
 
     @Test
     public void testPeekNoEmptyQueue() {
-        // TODO: write your own unit test
-        fail("Test not implemented");
+        mQueue.enqueue(5);
+        assertEquals(Integer.valueOf(5),mQueue.peek());
+        assertFalse(mQueue.isEmpty());
     }
 
     @Test
@@ -80,9 +80,13 @@ public class IntQueueTest {
 
     @Test
     public void testDequeue() {
-        // TODO: write your own unit test
-        fail("Test not implemented");
+        for (int i=0; i<15; i++) {
+            mQueue.enqueue(i);
     }
+        assertEquals(15, mQueue.size());
+        for (int i = 0; i <15; i++) {
+            assertEquals(Integer.valueOf(i), mQueue.dequeue());
+        }
 
     @Test
     public void testContent() throws IOException {
