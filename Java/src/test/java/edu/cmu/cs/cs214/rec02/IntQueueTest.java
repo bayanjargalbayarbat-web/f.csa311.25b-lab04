@@ -82,6 +82,7 @@ public class IntQueueTest {
     public void testDequeue() {
         for(int i=0 i<15; i++) {
             assertEquals(Integer.valueOf(i), mQueue.dequeue());
+        }
     }
 
     @Test
